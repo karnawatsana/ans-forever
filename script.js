@@ -5,10 +5,12 @@
 // The big day: when Anvu moves to SF
 const DEPARTURE = new Date(2026, 5, 25, 0, 0, 0); // June 25, 2026 (months are 0-indexed)
 
-// Each year's page unlocks the day before/of: 2017 -> June 17, 2018 -> June 18 ... 2026 -> June 26
+// Each year's page unlocks day by day: 2017 -> June 16, 2018 -> June 17 ... 2026 -> June 25
+// (2017 is opened a day early so it's live today.)
 function unlockDateFor(year) {
+  if (year === 2017) return new Date(2026, 5, 15, 0, 0, 0); // live today
   const offset = year - 2017; // 0..9
-  return new Date(2026, 5, 17 + offset, 0, 0, 0);
+  return new Date(2026, 5, 16 + offset, 0, 0, 0);
 }
 
 // Add ?preview=true to the URL to unlock every year early (handy while building this!)
